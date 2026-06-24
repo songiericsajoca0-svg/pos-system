@@ -468,13 +468,14 @@ export default function POSApp() {
 
             {activeTab === 'closing' && (
               <DailyClose
-                report={report || fallbackReport}
-                closings={closings}
-                closeDay={closeDay}
-                saving={saving}
-                currency={currency}
-                reload={() => Promise.allSettled([loadReport(), loadClosings()])}
-              />
+                  report={report || fallbackReport}
+                  closings={closings}
+                  closingSummary={closingSummary}
+                  closeDay={closeDay}
+                  saving={saving}
+                  currency={currency}
+                  reload={() => Promise.allSettled([loadReport(), loadClosings()])}
+                  />
             )}
           </>
         )}
