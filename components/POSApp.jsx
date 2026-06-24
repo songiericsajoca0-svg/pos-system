@@ -33,6 +33,7 @@ export default function POSApp() {
   const [orders, setOrders] = useState([]);
   const [report, setReport] = useState(null);
   const [closings, setClosings] = useState([]);
+  const [closingSummary, setClosingSummary] = useState(null);
   const [cart, setCart] = useState([]);
   const [settings, setSettings] = useState({ ...BUSINESS_DEFAULTS });
   const [discountType, setDiscountType] = useState('fixed');
@@ -125,8 +126,9 @@ export default function POSApp() {
       const data = await res.json();
       if (!res.ok || !data.ok) throw new Error(data.error || 'Cannot load daily closings');
       setClosings(data.closings || []);
-    } catch (_error) {
+      setClosingSummary(data.overall || null);    } catch (_error) {
       setClosings([]);
+      setClosingSummary(null);
     }
   }
 
