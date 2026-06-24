@@ -54,8 +54,8 @@ export default function OrderHistory({ orders, currency, onReceipt, onStatus, re
     <section className="panel-card">
       <div className="section-head">
         <div>
-          <p className="eyebrow">Sales records</p>
-          <h2>Order history</h2>
+          <p className="eyebrow">Current unclosed sales records</p>
+<h2>Open orders</h2>
         </div>
         <div className="top-actions">
           <button className="ghost-btn" onClick={reload}>Refresh</button>
@@ -101,7 +101,10 @@ export default function OrderHistory({ orders, currency, onReceipt, onStatus, re
         ))}
       </div>
 
-      {filtered.length === 0 && <div className="empty-state">No orders found.</div>}
-    </section>
+{filtered.length === 0 && (
+  <div className="empty-state">
+    No open orders found. After Daily Close, orders are archived and this list resets.
+  </div>
+)}    </section>
   );
 }
