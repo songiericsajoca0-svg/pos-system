@@ -137,7 +137,41 @@ export default function DailyClose({ report, closings, closeDay, saving, currenc
         </div>
       </div>
 
-      
+      {previewClosing && (
+        <div className="panel-card closing-print-area">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Saved record</p>
+              <h2>{previewClosing.closingNo}</h2>
+            </div>
+            <div className="row-actions no-print">
+              <button className="ghost-btn" onClick={() => exportClosingCsv(previewClosing)}>Export CSV</button>
+              <button className="primary-btn" onClick={() => printClosing(previewClosing)}>Print</button>
+            </div>
+          </div>
+          <div className="closing-receipt">
+            <h3>Daily Sales Closing</h3>
+            <p>Business Date: <strong>{previewClosing.businessDate}</strong></p>
+            <p>Closed By: <strong>{previewClosing.cashier}</strong></p>
+            <p>Closed At: <strong>{dateTime(previewClosing.createdAt)}</strong></p>
+            {previewClosing.notes && <p>Notes: {previewClosing.notes}</p>}
+            <div className="totals-card flat">
+              <div><span>Orders</span><strong>{previewClosing.summary?.orders || 0}</strong></div>
+              <div><span>Gross Sales</span><strong>{peso(previewClosing.summary?.grossSales, currency)}</strong></div>
+              <div><span>Discounts</span><strong>{peso(previewClosing.summary?.discounts, currency)}</strong></div>
+              <div><span>Service Charge</span><strong>{peso(previewClosing.summary?.serviceCharge, currency)}</strong></div>
+              <div><span>Tax</span><strong>{peso(previewClosing.summary?.tax, currency)}</strong></div>
+              <div className="grand"><span>Net Sales</span><strong>{peso(previewClosing.summary?.netSales, currency)}</strong></div>
+            </div>
+            <h4>Top Items</h4>
+            <div className="rank-list">
+              {previewClosing.topItems?.length ? previewClosing.topItems.map((item) => (
+                <div key={item._id}><span>{item._id}</span><strong>{item.qty} • {peso(item.sales, currency)}</strong></div>
+              )) : <p className="muted-text">No items.</p>}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }
