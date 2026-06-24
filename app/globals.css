@@ -240,6 +240,40 @@ td small { display: block; margin-top: 0.15rem; color: var(--muted); }
 .receipt-total div { display: flex; justify-content: space-between; }
 .receipt-total .grand { font-size: 1.1rem; font-weight: 900; border-top: 1px dashed #111; padding-top: 0.4rem; margin-top: 0.35rem; }
 .receipt-footer { text-align: center; margin: 0.75rem 0 0; }
+.overall-earnings-card {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.overall-metrics {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.metric-card.highlight {
+  background: #11100e;
+  color: #fffaf3;
+  border-color: #11100e;
+}
+
+.metric-card.highlight span {
+  color: #f7c381;
+}
+
+.metric-card.highlight strong {
+  color: #fffaf3;
+}
+
+@media (max-width: 980px) {
+  .overall-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .overall-metrics {
+    grid-template-columns: 1fr;
+  }
+}
 
 @media (max-width: 1180px) {
   .pos-shell { grid-template-columns: 92px minmax(0, 1fr); }
