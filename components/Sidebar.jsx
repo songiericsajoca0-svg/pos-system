@@ -15,12 +15,18 @@ export default function Sidebar({ activeTab, setActiveTab, cartCount, offlineMod
       <div className="brand-block">
 <div className="logo-mark">
   <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* Replace this path with your actual logo path */}
-    <circle cx="20" cy="20" r="18" fill="#4F46E5" />
-    <path d="M12 28L28 12M28 28L12 12" stroke="white" strokeWidth="3" strokeLinecap="round" />
-    {/* Or use your own SVG paths here */}
+    {/* POS Terminal / Cash Register Icon */}
+    <rect x="6" y="20" width="28" height="16" rx="2" stroke="#4F46E5" strokeWidth="2.5" />
+    <rect x="10" y="10" width="20" height="12" rx="1.5" stroke="#4F46E5" strokeWidth="2.5" />
+    <line x1="14" y1="16" x2="26" y2="16" stroke="#4F46E5" strokeWidth="2" strokeLinecap="round" />
+    <line x1="14" y1="13" x2="20" y2="13" stroke="#4F46E5" strokeWidth="2" strokeLinecap="round" />
+    <circle cx="12" cy="30" r="3" stroke="#4F46E5" strokeWidth="2" />
+    <circle cx="28" cy="30" r="3" stroke="#4F46E5" strokeWidth="2" />
+    <rect x="17" y="26" width="6" height="4" rx="1" fill="#4F46E5" />
+    {/* Card swipe slot */}
+    <line x1="28" y1="23" x2="34" y2="23" stroke="#4F46E5" strokeWidth="1.5" strokeDasharray="2 2" />
   </svg>
-</div>        <div>
+</div>     <div>
           <p className="eyebrow">POS System</p>
           <h2>{storeName || 'The Point Ko.fi'}</h2>
         </div>
