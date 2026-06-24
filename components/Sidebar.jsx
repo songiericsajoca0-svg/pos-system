@@ -43,16 +43,16 @@ export default function Sidebar({ activeTab, setActiveTab, cartCount, offlineMod
     fill="none"
     style={{
       transition: "all .15s ease",
-      filter: "drop-shadow(0 10px 20px rgba(79,70,229,.35))",
-    }}
+filter: "drop-shadow(0 12px 24px rgba(90,58,36,.45))",    }}
     xmlns="http://www.w3.org/2000/svg"
   >
     <defs>
-      <linearGradient id="grad" x1="0" y1="0" x2="40" y2="40">
-        <stop offset="0%" stopColor="#6366F1" />
-        <stop offset="100%" stopColor="#06B6D4" />
-      </linearGradient>
-    </defs>
+  <linearGradient id="grad" x1="0" y1="0" x2="40" y2="40">
+    <stop offset="0%" stopColor="#2B2B2B" />
+    <stop offset="50%" stopColor="#4A2C2A" />
+    <stop offset="100%" stopColor="#8B5E3C" />
+  </linearGradient>
+</defs>
 
     <circle cx="20" cy="20" r="18" fill="url(#grad)" opacity=".08">
       <animate attributeName="r" values="18;20;18" dur="2s" repeatCount="indefinite"/>
@@ -74,10 +74,10 @@ export default function Sidebar({ activeTab, setActiveTab, cartCount, offlineMod
         stroke="url(#grad)" strokeWidth="2.5"/>
 
       <line x1="14" y1="16" x2="26" y2="16"
-        stroke="#4F46E5" strokeWidth="2" strokeLinecap="round"/>
+        stroke="#3B2A24" strokeWidth="2" strokeLinecap="round"/>
 
       <line x1="14" y1="13" x2="20" y2="13"
-        stroke="#06B6D4" strokeWidth="2" strokeLinecap="round"/>
+        stroke="#8B5E3C" strokeWidth="2" strokeLinecap="round"/>
     </g>
 
     <circle cx="12" cy="30" r="3" stroke="url(#grad)" strokeWidth="2">
@@ -92,15 +92,15 @@ export default function Sidebar({ activeTab, setActiveTab, cartCount, offlineMod
       <animate attributeName="opacity" values="1;.4;1" dur="1.5s" repeatCount="indefinite"/>
     </rect>
 
-    <rect x="28" y="22" width="4" height="2" rx=".5" fill="#06B6D4">
+    <rect x="28" y="22" width="4" height="2" rx=".5" fill="#8B5E3C">
       <animate attributeName="x" values="28;31;28" dur="1.2s" repeatCount="indefinite"/>
     </rect>
 
-    <circle cx="8" cy="8" r=".7" fill="#06B6D4">
+    <circle cx="8" cy="8" r=".7" fill="#8B5E3C"">
       <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
     </circle>
 
-    <circle cx="33" cy="8" r=".7" fill="#6366F1">
+    <circle cx="33" cy="8" r=".7" fill="#4A2C2A">
       <animate attributeName="opacity" values="1;0;1" dur="2.2s" repeatCount="indefinite"/>
     </circle>
   </svg>
