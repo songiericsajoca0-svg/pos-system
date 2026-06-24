@@ -48,15 +48,7 @@ export default function SettingsPanel({ settings, saveSettings, seedMenu, saving
         <button className="primary-btn wide" disabled={saving} onClick={seedMenu}>{saving ? 'Working...' : 'Seed menu to MongoDB'}</button>
         {offlineMode && <p className="warning-text">Currently using demo menu because MongoDB is not connected or products collection is empty.</p>}
 
-        <div className="deploy-steps">
-          <h3>Deploy to Vercel</h3>
-          <ol>
-            <li>Upload/push this project to GitHub.</li>
-            <li>Import the repository in Vercel.</li>
-            <li>Add Environment Variable: <code>MONGODB_URI</code>.</li>
-            <li>Deploy, open the app, then click <strong>Seed menu to MongoDB</strong>.</li>
-          </ol>
-        </div>
+       
       </div>
     </section>
   );
