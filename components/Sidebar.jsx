@@ -9,24 +9,48 @@ const nav = [
   { id: 'settings', label: 'Settings', icon: '⚙️' }
 ];
 
+function POSLogo() {
+  return (
+    <div className="logo-mark" aria-hidden="true">
+      <svg className="logo-svg" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="logoBody" x1="10" y1="8" x2="56" y2="58" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#FFF7ED" />
+            <stop offset="1" stopColor="#FED7AA" />
+          </linearGradient>
+          <linearGradient id="logoAccent" x1="13" y1="14" x2="51" y2="51" gradientUnits="userSpaceOnUse">
+            <stop stopColor="#F97316" />
+            <stop offset="1" stopColor="#7C2D12" />
+          </linearGradient>
+          <filter id="logoShadow" x="0" y="0" width="64" height="64" filterUnits="userSpaceOnUse" colorInterpolationFilters="sRGB">
+            <feDropShadow dx="0" dy="7" stdDeviation="5" floodColor="#7C2D12" floodOpacity="0.22" />
+          </filter>
+        </defs>
+
+        <rect x="6" y="6" width="52" height="52" rx="17" fill="url(#logoBody)" filter="url(#logoShadow)" />
+        <rect x="12" y="13" width="40" height="25" rx="8" fill="#11100E" />
+        <rect x="16" y="17" width="32" height="14" rx="4" fill="#FFF7ED" />
+        <path d="M20 24H31" stroke="url(#logoAccent)" strokeWidth="3" strokeLinecap="round" />
+        <path d="M20 29H26" stroke="#FDBA74" strokeWidth="2" strokeLinecap="round" />
+        <path d="M37 22C37 19.8 38.8 18 41 18H43.5C45.4 18 47 19.6 47 21.5C47 23.4 45.4 25 43.5 25H43" stroke="url(#logoAccent)" strokeWidth="2.6" strokeLinecap="round" />
+        <path d="M39 20.5V27.5C39 29.4 40.6 31 42.5 31H43" stroke="url(#logoAccent)" strokeWidth="2.6" strokeLinecap="round" />
+
+        <rect x="14" y="36" width="36" height="14" rx="5" fill="url(#logoAccent)" />
+        <rect x="19" y="40" width="7" height="6" rx="2" fill="#FFF7ED" opacity="0.95" />
+        <circle cx="35" cy="43" r="2.4" fill="#FFF7ED" opacity="0.95" />
+        <circle cx="43" cy="43" r="2.4" fill="#FFF7ED" opacity="0.75" />
+        <path d="M21 53H43" stroke="#11100E" strokeWidth="3" strokeLinecap="round" opacity="0.2" />
+      </svg>
+    </div>
+  );
+}
+
 export default function Sidebar({ activeTab, setActiveTab, cartCount, offlineMode, storeName }) {
   return (
     <aside className="sidebar">
       <div className="brand-block">
-<div className="logo-mark">
-  <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-    {/* POS Terminal / Cash Register Icon */}
-    <rect x="6" y="20" width="28" height="16" rx="2" stroke="#4F46E5" strokeWidth="2.5" />
-    <rect x="10" y="10" width="20" height="12" rx="1.5" stroke="#4F46E5" strokeWidth="2.5" />
-    <line x1="14" y1="16" x2="26" y2="16" stroke="#4F46E5" strokeWidth="2" strokeLinecap="round" />
-    <line x1="14" y1="13" x2="20" y2="13" stroke="#4F46E5" strokeWidth="2" strokeLinecap="round" />
-    <circle cx="12" cy="30" r="3" stroke="#4F46E5" strokeWidth="2" />
-    <circle cx="28" cy="30" r="3" stroke="#4F46E5" strokeWidth="2" />
-    <rect x="17" y="26" width="6" height="4" rx="1" fill="#4F46E5" />
-    {/* Card swipe slot */}
-    <line x1="28" y1="23" x2="34" y2="23" stroke="#4F46E5" strokeWidth="1.5" strokeDasharray="2 2" />
-  </svg>
-</div>     <div>
+        <POSLogo />
+        <div>
           <p className="eyebrow">POS System</p>
           <h2>{storeName || 'The Point Ko.fi'}</h2>
         </div>
@@ -46,7 +70,11 @@ export default function Sidebar({ activeTab, setActiveTab, cartCount, offlineMod
         ))}
       </nav>
 
-      
+      <div className="sidebar-card">
+        <p className="eyebrow">Status</p>
+        <strong>{offlineMode ? 'Demo mode' : 'MongoDB connected'}</strong>
+        <small>{offlineMode ? 'Set MONGODB_URI then seed menu.' : 'Ready for Vercel deployment.'}</small>
+      </div>
     </aside>
   );
 }
