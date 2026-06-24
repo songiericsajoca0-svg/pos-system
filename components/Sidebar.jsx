@@ -118,11 +118,7 @@ export default function Sidebar({ activeTab, setActiveTab, cartCount, offlineMod
           </button>
         ))}
       </nav>
-      <div className="sidebar-card">
-        <p className="eyebrow">Status</p>
-        <strong>{offlineMode ? 'Demo mode' : 'MongoDB connected'}</strong>
-        <small>{offlineMode ? 'Set MONGODB_URI then seed menu.' : 'Ready for Vercel deployment.'}</small>
-      </div>
+      
     </aside>
   );
 }
